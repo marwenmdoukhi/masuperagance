@@ -1,7 +1,8 @@
 <div class="card mb-4">
+    {% if property.filename %}
+        <img src="/images/properties/{{property.filename }}" class="card-img-top img-fluid " alt="" style="width: 100%; height:auto;">
+    {% endif %}
     <div class="card-body">
-        {% if property.filename %}
-            <img src="{{ '/images/properties/empty.jpg' }}" alt="" class="card-img-top img-fluid">        {% endif %}
         <h5 class="card-title">
             <a href="{{ path('property_show', {slug: property.slug, id: property.id }) }}">
                 {{ property.title }}
@@ -15,5 +16,4 @@
             </span>
         </p>
     </div>
-
 </div>

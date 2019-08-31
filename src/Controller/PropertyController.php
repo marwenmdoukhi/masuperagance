@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\propertySearch;
+use App\Entity\PropertySearch;
 use App\Form\PropertySearchType;
 use App\Repository\PropertyRepository;
 use Doctrine\Common\Persistence\ObjectManager;

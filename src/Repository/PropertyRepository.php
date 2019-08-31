@@ -3,8 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Property;
-use App\Entity\propertySearch;
-use App\Form\PropertySearchType;
+use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
