@@ -4,7 +4,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class propertySearch{
+class PropertySearch{
 
     /**
      * @var int|null
@@ -67,7 +67,7 @@ class propertySearch{
 
     /**
      * @param ArrayCollection $options
-     * @return propertySearch
+     * @return PropertySearch
      */
     public function setOptions(ArrayCollection $options): propertySearch
     {
