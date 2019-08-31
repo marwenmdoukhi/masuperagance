@@ -1,0 +1,19 @@
+<div class="card mb-4">
+    <div class="card-body">
+        {% if property.filename %}
+            <img src="{{ '/images/properties/empty.jpg' }}" alt="" class="card-img-top img-fluid">        {% endif %}
+        <h5 class="card-title">
+            <a href="{{ path('property_show', {slug: property.slug, id: property.id }) }}">
+                {{ property.title }}
+            </a>
+        </h5>
+        <p class="card-text">
+            {{ property.surface }} m2 - {{ property.city }} ({{ property.postalCode }})
+            <br>
+            <span class="text-primary" style="font-size: 2rem; font-weight: bold;">
+                {{ property.formatedprix }}
+            </span>
+        </p>
+    </div>
+
+</div>
