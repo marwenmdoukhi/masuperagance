@@ -8,11 +8,14 @@ use App\Form\PropertyType;
 use App\Repository\PropertyRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
+use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class AdminPropertyController extends AbstractController
 {
@@ -70,14 +73,26 @@ class AdminPropertyController extends AbstractController
 
     /**
      * @Route("/admin/property/{id}", name="admin.property.edit" ,methods="GET|POST")
+     * @param Property $property
+     * @param Request $request
+     * @param CacheManager $cacheManager
+     * @param UploaderHelper $helper
+     * @return RedirectResponse|Response
      */
 
-    public function edit(Property $property,Request $request){
+    public function edit(Property $property,Request $request,CacheManager $cacheManager,UploaderHelper $helper){
 
 
        $form = $this->createForm(PropertyType::class,$property);
        $form->handleRequest($request);
        if ( $form->isSubmitted() &&$form->isValid() ) {
+           #supprimer cache de iamge et remplacer par une autres image
+           #mais cette methode il faut crée dans tout les opartion
+           #plus partique ecrire une event lesncer
+
+           if ($property->getImageFile() instanceof UploadedFile) {
+                $cacheManager->remove($helper->asset($property,'imageFile'));
+           }
            $this->em->flush();
            $this->addFlash("success","bien edit");
            return $this->redirectToRoute('admin.property.index');
@@ -91,6 +106,7 @@ class AdminPropertyController extends AbstractController
     /**
      * @Route("/admin/property/{id}", name="admin.property.delete", methods="DELETE")
      * @param Property $property
+     * @param Request $request
      * @return RedirectResponse
      */
     public function delete(Property $property,Request $request){

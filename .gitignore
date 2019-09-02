@@ -17,3 +17,10 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+
+###< liip/imagine-bundle ###
+public/images
+public/media
