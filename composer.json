@@ -9,6 +9,7 @@
         "fzaninotto/faker": "^1.8",
         "knplabs/knp-paginator-bundle": "^4.0",
         "liip/imagine-bundle": "^2.1",
+        "notfloran/mjml-bundle": "^3.1",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.3.*",
