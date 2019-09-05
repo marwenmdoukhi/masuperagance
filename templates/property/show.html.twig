@@ -28,8 +28,11 @@
                 <h1> {{property.title }}</h1>
                 <h2> {{ property.rooms }} pieces-{{ property.surface }} m<sup>2</sup>  </h2>
                 <div class="text-primary" style="font-size:3rem;font-weight: bold">{{ property.formatedprix }} €</div>
-                <a href="#" class="btn btn-primary">Contacter l'agance </a>
-                <div id="contactForm" class="mt-4">
+                <a href="" class="btn btn-primary"
+                   id="contactButton"{% if form.vars.submitted %} style="display: none;"{% endif %}>Contacter
+                    l'agence</a>
+                <div id="contactForm"
+                     class="mt-4"{% if not form.vars.submitted %} {% endif %}>
                     {{ form_start(form) }}
                     <div class="row">
                         <div class="col">{{ form_row(form.firstname) }}</div>
@@ -43,7 +46,6 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Envoyer</button>
                     </div>
-
                     {{ form_end(form) }}
                 </div>
             </div>
