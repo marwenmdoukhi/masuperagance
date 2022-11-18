@@ -1,7 +1,7 @@
 {
     "devDependencies": {
         "@babel/preset-es2017": "^7.0.0-beta.53",
-        "@symfony/webpack-encore": "^0.28.0",
+        "@symfony/webpack-encore": "^4.1.1",
         "core-js": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
         "webpack-notifier": "^1.6.0"
